@@ -40,7 +40,7 @@ const Categories = ({ categories }: Props) => {
         ))}
       </ul>
       {currentCategory && (
-        <Link href="/public">
+        <Link href="/">
           <CloseButton width={16} height={16} fill="#ccc" />
         </Link>
       )}

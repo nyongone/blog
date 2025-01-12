@@ -15,6 +15,6 @@ export async function getPosts(page = 1, limit = -1, category?: string) {
 export async function getPostById(id: number) {
   return await fetchData<GeneralResponse<PostType>>(`/posts/${id}`, {
     method: "GET",
-    cache: "default",
+    cache: "no-cache",
   });
 }

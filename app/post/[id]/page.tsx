@@ -2,6 +2,7 @@ import { getPostById } from "@/apis/post-api";
 import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import Comments from "@/containers/posts/Comments";
 
 export async function generateMetadata({
   params,
@@ -29,5 +30,11 @@ export default async function Page({
 
   if (!post.data) return notFound();
 
-  return <PostDetail post={post.data} />;
+  return (
+    <>
+      <PostDetail post={post.data} />
+      <hr className="max-md:mb-18 mb-24 mt-12 h-[1px] w-full border-none bg-gray-300 max-md:mt-8" />
+      <Comments />
+    </>
+  );
 }

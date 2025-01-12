@@ -1,4 +1,4 @@
-import Categories from "@/components/Categories";
+import Categories from "@/components/layout/Categories";
 import PostList from "@/components/posts/PostList";
 import React from "react";
 import { getPosts } from "@/apis/post-api";

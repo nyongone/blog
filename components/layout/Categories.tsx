@@ -32,7 +32,7 @@ const Categories = ({ categories }: Props) => {
           >
             <Link
               className="block h-full w-full px-4 py-2"
-              href={`/?category=${category.slug}`}
+              href={`/public?category=${category.slug}`}
             >
               {category.name}
             </Link>
@@ -40,7 +40,7 @@ const Categories = ({ categories }: Props) => {
         ))}
       </ul>
       {currentCategory && (
-        <Link href="/">
+        <Link href="/public">
           <CloseButton width={16} height={16} fill="#ccc" />
         </Link>
       )}

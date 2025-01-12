@@ -25,7 +25,7 @@ const Categories = ({ categories }: Props) => {
           <li
             key={category.id}
             className={clsx("block rounded-xl text-sm", {
-              ["bg-blue-500 font-bold text-blue-50"]:
+              ["bg-blue-500 font-bold text-blue-50 drop-shadow-sm"]:
                 category.slug === currentCategory,
               ["bg-gray-100 text-gray-400"]: category.slug !== currentCategory,
             })}

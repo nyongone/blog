@@ -67,7 +67,7 @@ export default {
             height: "auto",
             padding: "2rem",
             margin: "2rem 0",
-            backgroundColor: theme("colors.gray.50"),
+            backgroundColor: theme("colors.gray.100"),
             borderRadius: "0.75rem",
             overflowX: "auto",
           },

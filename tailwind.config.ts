@@ -77,6 +77,11 @@ export default {
             color: theme("colors.blue.500"),
             wordBreak: "break-word",
             fontSize: "1rem",
+            "&:hover": {
+              textDecorationLine: "underline",
+              textDecorationColor: theme("colors.blue.500"),
+              textUnderlineOffset: "4px",
+            },
           },
           hr: {
             width: "100%",

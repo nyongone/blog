@@ -12,7 +12,7 @@ const fontPretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "@nyongone",
+  title: "@nyongwon",
   description: "안녕하세요, 같이 가치를 만드는 조용원 입니다.",
 };
 

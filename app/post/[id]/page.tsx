@@ -21,7 +21,7 @@ export async function generateMetadata({
   const { data } = await getPostById(id);
 
   return {
-    title: `${data.title} | @nyongone`,
+    title: `${data.title} | @nyongwon`,
   };
 }
 

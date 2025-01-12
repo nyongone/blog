@@ -37,7 +37,7 @@ export default async function Page({
   const { id } = await params;
   const post = await getPostById(id);
 
-  if (!post.data) return notFound();
+  if (!post) return notFound();
 
   return <PostDetail post={post.data} />;
 }

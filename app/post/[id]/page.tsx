@@ -1,6 +1,7 @@
 import { getPostById, getPosts } from "@/apis/post-api";
 import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
+import { notFound } from "next/navigation";
 
 export async function generateStaticParams() {
   const { data } = await getPosts();
@@ -32,6 +33,8 @@ export default async function Page({
 }) {
   const { id } = await params;
   const post = await getPostById(id);
+
+  if (!post.data) return notFound();
 
   return <PostDetail post={post.data} />;
 }

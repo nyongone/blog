@@ -4,8 +4,6 @@ import React from "react";
 import { getPosts } from "@/apis/post-api";
 import { getCategories } from "@/apis/category-api";
 
-export const revalidate = 3000;
-
 export default async function Page({
   searchParams,
 }: {

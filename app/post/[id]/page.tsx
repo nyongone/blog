@@ -33,7 +33,7 @@ export default async function Page({
   return (
     <>
       <PostDetail post={post.data} />
-      <hr className="max-md:mb-18 mb-24 mt-12 h-[1px] w-full border-none bg-gray-300 max-md:mt-8" />
+      <hr className="mb-24 mt-12 h-[1px] w-full border-none bg-gray-300 max-md:mb-16 max-md:mt-8" />
       <Comments />
     </>
   );

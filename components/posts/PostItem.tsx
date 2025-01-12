@@ -9,7 +9,7 @@ interface Props {
 
 const PostItem = ({ postData }: Props) => {
   return (
-    <li className="h-auto w-full bg-white py-4 max-md:py-2">
+    <li className="h-auto w-full bg-transparent py-4 max-md:py-2">
       <Link
         href={`/post/${postData.id}`}
         className="flex h-full w-full flex-col items-start justify-center gap-2"

@@ -8,3 +8,7 @@
     -moz-osx-font-smoothing: grayscale;
     font-synthesis: none;
 }
+
+html, body {
+    @apply bg-gray-50;
+}

@@ -40,18 +40,18 @@ export default {
             margin: "1.5rem 0",
           },
           p: {
-            fontSize: "1.25rem",
+            fontSize: "1rem",
             fontWeight: "normal",
-            lineHeight: "1.75",
+            lineHeight: "2",
             marginBottom: "1.5rem",
           },
           ul: {
-            fontSize: "1.25rem",
+            fontSize: "1rem",
             listStyle: "disc inside",
             margin: "1.5rem 0",
           },
           ol: {
-            fontSize: "1.25rem",
+            fontSize: "1rem",
             listStyle: "decimal inside",
             margin: "1.5rem 0",
           },
@@ -70,10 +70,12 @@ export default {
             backgroundColor: theme("colors.gray.100"),
             borderRadius: "0.75rem",
             overflowX: "auto",
+            fontSize: "1rem",
           },
           a: {
             color: theme("colors.blue.500"),
             wordBreak: "break-word",
+            fontSize: "1rem",
           },
           hr: {
             width: "100%",

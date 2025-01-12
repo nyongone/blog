@@ -16,7 +16,7 @@ export async function generateMetadata({
       title: `${data.title} | @nyongwon`,
     };
 
-  return notFound();
+  return { title: "@nyongwon" };
 }
 
 export default async function Page({
@@ -26,6 +26,8 @@ export default async function Page({
 }) {
   const { id } = await params;
   const post = await getPostById(id);
+
+  if (!post.data) return notFound();
 
   return <PostDetail post={post.data} />;
 }

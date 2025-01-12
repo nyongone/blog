@@ -3,6 +3,7 @@ import "@/styles/global.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import localFont from "next/font/local";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 const fontPretendard = localFont({
   src: "../assets/fonts/PretendardVariable.woff2",
@@ -23,6 +24,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
+      <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTAG_ID}`} />
+      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GA_ID}`} />
       <body className={`${fontPretendard.className}`}>
         <Header />
         <main className="m-[0_auto] min-h-screen max-w-[896px] p-4">

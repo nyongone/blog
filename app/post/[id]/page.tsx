@@ -21,9 +21,12 @@ export async function generateMetadata({
   const { id } = await params;
   const { data } = await getPostById(id);
 
-  return {
-    title: `${data.title} | @nyongwon`,
-  };
+  if (data)
+    return {
+      title: `${data.title} | @nyongwon`,
+    };
+
+  return { title: "@nyongwon" };
 }
 
 export default async function Page({

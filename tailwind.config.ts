@@ -73,6 +73,7 @@ export default {
           },
           a: {
             color: theme("colors.blue.500"),
+            wordBreak: "break-word",
           },
           hr: {
             width: "100%",

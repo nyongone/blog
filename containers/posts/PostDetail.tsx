@@ -16,9 +16,11 @@ const PostDetail = async ({ post }: Props) => {
         <h1 className="mb-4 text-wrap text-5xl font-extrabold leading-[1.5] text-gray-700 max-md:text-4xl max-md:leading-[1.5]">
           {post.title}
         </h1>
-        <span className="block rounded-xl bg-gray-100 px-4 py-2 text-sm text-gray-400">
-          {post.category.name}
-        </span>
+        {post.category.name && (
+          <span className="block rounded-xl bg-gray-100 px-4 py-2 text-sm text-gray-400">
+            {post.category.name}
+          </span>
+        )}
       </div>
       <article
         className="prose"

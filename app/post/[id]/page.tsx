@@ -6,11 +6,14 @@ import { notFound } from "next/navigation";
 export async function generateStaticParams() {
   const { data } = await getPosts();
 
-  return data.map((post) => ({
-    params: {
-      id: post.id,
-    },
-  }));
+  if (data)
+    return data.map((post) => ({
+      params: {
+        id: post.id,
+      },
+    }));
+
+  return [];
 }
 
 export async function generateMetadata({
@@ -26,7 +29,7 @@ export async function generateMetadata({
       title: `${data.title} | @nyongwon`,
     };
 
-  return { title: "@nyongwon" };
+  return notFound();
 }
 
 export default async function Page({
@@ -36,8 +39,6 @@ export default async function Page({
 }) {
   const { id } = await params;
   const post = await getPostById(id);
-
-  if (!post) return notFound();
 
   return <PostDetail post={post.data} />;
 }

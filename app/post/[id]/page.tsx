@@ -3,21 +3,6 @@ import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 
-export const dynamicParams = false;
-
-export async function generateStaticParams() {
-  const { data } = await getPosts();
-
-  if (data)
-    return data.map((post) => ({
-      params: {
-        id: post.id,
-      },
-    }));
-
-  return [];
-}
-
 export async function generateMetadata({
   params,
 }: {

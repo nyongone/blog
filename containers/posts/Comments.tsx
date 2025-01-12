@@ -18,7 +18,7 @@ const Comments = () => {
         inputPosition="bottom"
         theme="light"
         lang="ko"
-        loading="lazy"
+        loading="eager"
       />
     </div>
   );

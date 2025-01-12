@@ -32,7 +32,7 @@ const Categories = ({ categories }: Props) => {
           >
             <Link
               className="block h-full w-full px-4 py-2"
-              href={`/public?category=${category.slug}`}
+              href={`/?category=${category.slug}`}
             >
               {category.name}
             </Link>

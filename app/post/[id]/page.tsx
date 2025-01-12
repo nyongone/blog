@@ -1,4 +1,4 @@
-import { getPostById, getPosts } from "@/apis/post-api";
+import { getPostById } from "@/apis/post-api";
 import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";

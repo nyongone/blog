@@ -17,7 +17,6 @@ export async function generateMetadata({
 }: {
   params: Promise<{ id: number }>;
 }): Promise<Metadata> {
-  // fetch data with `params`
   const { id } = await params;
   const { data } = await getPostById(id);
 

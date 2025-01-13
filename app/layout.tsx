@@ -32,8 +32,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko">
-      <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTAG_ID}`} />
-      <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GA_ID}`} />
+      {process.env.NODE_ENV === "production" && (
+        <>
+          <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTAG_ID}`} />
+          <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GA_ID}`} />
+        </>
+      )}
       <body className={`${fontPretendard.className}`}>
         <Header />
         <main className="m-[0_auto] min-h-screen max-w-[896px] p-4">

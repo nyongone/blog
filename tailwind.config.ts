@@ -73,7 +73,6 @@ export default {
             fontSize: "1.25rem",
           },
           a: {
-            display: "inline-block",
             color: theme("colors.blue.500"),
             wordBreak: "break-word",
             fontSize: "1.25rem",

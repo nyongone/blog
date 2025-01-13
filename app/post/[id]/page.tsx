@@ -3,6 +3,7 @@ import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Comments from "@/containers/posts/Comments";
+import Thumbnail from "@/containers/posts/Thumbnail";
 
 export async function generateMetadata({
   params,
@@ -15,6 +16,14 @@ export async function generateMetadata({
   if (data)
     return {
       title: `${data.title} | @nyongwon`,
+      openGraph: {
+        images: [
+          {
+            url: data.thumbnail?.formats.thumbnail.url || "",
+            alt: `${data.title}`,
+          },
+        ],
+      },
     };
 
   return { title: "@nyongwon" };
@@ -32,6 +41,7 @@ export default async function Page({
 
   return (
     <>
+      {post.data.thumbnail && <Thumbnail thumbnail={post.data.thumbnail} />}
       <PostDetail post={post.data} />
       <hr className="mb-24 mt-12 h-[1px] w-full border-none bg-gray-300 max-md:mb-16 max-md:mt-8" />
       {process.env.NODE_ENV === "production" && <Comments />}

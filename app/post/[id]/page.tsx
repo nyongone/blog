@@ -41,7 +41,6 @@ export default async function Page({
 
   return (
     <>
-      {post.data.thumbnail && <Thumbnail thumbnail={post.data.thumbnail} />}
       <PostDetail post={post.data} />
       <hr className="mb-24 mt-12 h-[1px] w-full border-none bg-gray-300 max-md:mb-16 max-md:mt-8" />
       {process.env.NODE_ENV === "production" && <Comments />}

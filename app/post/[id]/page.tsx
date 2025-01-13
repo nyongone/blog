@@ -3,7 +3,6 @@ import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Comments from "@/containers/posts/Comments";
-import Thumbnail from "@/containers/posts/Thumbnail";
 
 export async function generateMetadata({
   params,

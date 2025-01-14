@@ -76,6 +76,8 @@ const PostToc = ({ content }: Props) => {
     }
   }, [headingCoords]);
 
+  if (tocs.length <= 0) return <></>;
+
   return (
     <ul className="flex flex-col items-start justify-start gap-1">
       {tocs.map((toc) => (

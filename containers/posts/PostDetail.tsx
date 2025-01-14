@@ -12,12 +12,11 @@ interface Props {
 const PostDetail = async ({ post }: Props) => {
   return (
     <>
-      <div className="relative w-full"></div>
-      <div className="flex flex-row">
-        <div className="sticky top-28 mr-4 h-fit w-[200px] shrink-0 pt-8 max-lg:hidden">
+      <div className="relative w-full">
+        <aside className="absolute right-[100%] top-28 mr-4 h-full w-[150px] pt-8 max-xl:hidden">
           <PostToc content={post.content} />
-        </div>
-        <div className="flex h-auto w-full flex-col items-start justify-start gap-2 p-4">
+        </aside>
+        <div className="flex h-auto max-w-[1024px] flex-col items-start justify-start gap-2 p-4">
           <span className="text-gray-400">{formatDate(post.createdAt)}</span>
           <h1 className="mb-4 text-wrap text-5xl font-extrabold leading-[1.5] text-gray-700 max-md:text-4xl max-md:leading-[1.5]">
             {post.title}
@@ -28,7 +27,7 @@ const PostDetail = async ({ post }: Props) => {
             </span>
           )}
           <article
-            className="prose mt-16 max-w-[896px]"
+            className="prose mt-16 max-w-[1024px]"
             dangerouslySetInnerHTML={{
               __html: await markdownToHTML(post.content),
             }}

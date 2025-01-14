@@ -5,6 +5,7 @@ import remarkRehype from "remark-rehype";
 import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 
 export async function markdownToHTML(content: string) {
   const processedContent = await unified()
@@ -14,6 +15,7 @@ export async function markdownToHTML(content: string) {
     .use(rehypeSanitize)
     .use(rehypeStringify)
     .use(rehypeHighlight)
+    .use(rehypeSlug)
     .process(content);
 
   return processedContent.toString();

@@ -3,6 +3,7 @@ import { PostType } from "@/types/post";
 import { markdownToHTML } from "@/utils/markdown";
 import "@/styles/highlight.css";
 import { formatDate } from "@/utils/date-formatter";
+import PostToc from "@/containers/posts/PostToc";
 
 interface Props {
   post: PostType;
@@ -10,23 +11,31 @@ interface Props {
 
 const PostDetail = async ({ post }: Props) => {
   return (
-    <div className="w-full p-4">
-      <div className="mb-16 flex h-auto w-full flex-col items-start justify-start gap-2">
-        <span className="text-gray-400">{formatDate(post.createdAt)}</span>
-        <h1 className="mb-4 text-wrap text-5xl font-extrabold leading-[1.5] text-gray-700 max-md:text-4xl max-md:leading-[1.5]">
-          {post.title}
-        </h1>
-        {post.category.name && (
-          <span className="block rounded-xl bg-gray-100 px-4 py-2 text-sm text-gray-400">
-            {post.category.name}
-          </span>
-        )}
+    <>
+      <div className="relative w-full"></div>
+      <div className="flex flex-row">
+        <div className="sticky top-28 mr-4 h-fit w-[200px] shrink-0 pt-8 max-lg:hidden">
+          <PostToc content={post.content} />
+        </div>
+        <div className="flex h-auto w-full flex-col items-start justify-start gap-2 p-4">
+          <span className="text-gray-400">{formatDate(post.createdAt)}</span>
+          <h1 className="mb-4 text-wrap text-5xl font-extrabold leading-[1.5] text-gray-700 max-md:text-4xl max-md:leading-[1.5]">
+            {post.title}
+          </h1>
+          {post.category.name && (
+            <span className="block rounded-xl bg-gray-100 px-4 py-2 text-sm text-gray-400">
+              {post.category.name}
+            </span>
+          )}
+          <article
+            className="prose mt-16 max-w-[896px]"
+            dangerouslySetInnerHTML={{
+              __html: await markdownToHTML(post.content),
+            }}
+          ></article>
+        </div>
       </div>
-      <article
-        className="prose"
-        dangerouslySetInnerHTML={{ __html: await markdownToHTML(post.content) }}
-      ></article>
-    </div>
+    </>
   );
 };
 

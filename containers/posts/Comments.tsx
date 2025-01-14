@@ -7,7 +7,7 @@ const Comments = () => {
   const [id, repo] = (process.env.NEXT_PUBLIC_GISCUS_REPO || "").split("/");
 
   return (
-    <div className="px-4">
+    <div className="mb-20 px-4">
       <Giscus
         repo={`${id}/${repo}`}
         repoId={`${process.env.NEXT_PUBLIC_GISCUS_REPO_ID}`}

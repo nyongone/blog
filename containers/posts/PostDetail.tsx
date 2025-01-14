@@ -27,7 +27,7 @@ const PostDetail = async ({ post }: Props) => {
             </span>
           )}
           <article
-            className="prose mt-16 max-w-[1024px]"
+            className="prose mt-16 w-full"
             dangerouslySetInnerHTML={{
               __html: await markdownToHTML(post.content),
             }}

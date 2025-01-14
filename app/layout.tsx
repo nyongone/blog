@@ -40,7 +40,7 @@ export default function RootLayout({
       )}
       <body className={`${fontPretendard.className}`}>
         <Header />
-        <main className="m-[0_auto] min-h-screen w-auto max-w-[896px] p-4">
+        <main className="m-[0_auto] min-h-screen max-w-[896px] p-4">
           {children}
         </main>
         <Footer />

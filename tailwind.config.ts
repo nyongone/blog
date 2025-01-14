@@ -101,13 +101,13 @@ export default {
             color: theme("colors.blue.500"),
             wordBreak: "break-word",
             fontSize: "1.25rem",
+            "@media screen and (max-width: 767px)": {
+              fontSize: "1rem",
+            },
             "&:hover": {
               textDecorationLine: "underline",
               textDecorationColor: theme("colors.blue.500"),
               textUnderlineOffset: "4px",
-              "@media screen and (max-width: 767px)": {
-                fontSize: "1rem",
-              },
             },
           },
           hr: {

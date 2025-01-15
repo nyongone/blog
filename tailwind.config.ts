@@ -63,16 +63,20 @@ export default {
           },
           ul: {
             fontSize: "1.25rem",
-            listStyle: "disc inside",
+            lineHeight: "2",
+            listStyle: "disc",
             margin: "1.5rem 0",
+            paddingLeft: "1.5rem",
             "@media screen and (max-width: 767px)": {
               fontSize: "1rem",
             },
           },
           ol: {
             fontSize: "1.25rem",
-            listStyle: "decimal inside",
+            lineHeight: "2",
+            listStyle: "decimal",
             margin: "1.5rem 0",
+            paddingLeft: "1.5rem",
             "@media screen and (max-width: 767px)": {
               fontSize: "1rem",
             },

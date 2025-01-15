@@ -12,6 +12,7 @@
     "@giscus/react": "^3.1.0",
     "@next/third-parties": "^15.1.4",
     "clsx": "^2.1.1",
+    "github-slugger": "^2.0.0",
     "lodash": "^4.17.21",
     "next": "15.1.4",
     "react": "^19.0.0",

@@ -6,6 +6,7 @@ import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
+import GithubSlugger from "github-slugger";
 
 export async function markdownToHTML(content: string) {
   const processedContent = await unified()
@@ -23,13 +24,13 @@ export async function markdownToHTML(content: string) {
 
 export function getHeadingsFromMdx(mdx: string) {
   const _getHeadingLevel = (s: string) => s.match(/^(#{1,3})(?=\s)/)![0].length;
-  const _getSanitizedId = (s: string) =>
-    s
-      .match(/^#{1,3}\s+(\S.*)$/)![1]
-      .trimEnd()
-      .replaceAll(" ", "-")
-      .replaceAll("#", "")
-      .toLowerCase();
+  const _getSanitizedId = (s: string) => {
+    const slugger = new GithubSlugger();
+    const slug = slugger.slug(s.match(/^#{1,3}\s+(\S.*)$/)![1]);
+
+    console.log(slug);
+    return slug;
+  };
 
   const _getHeadings = (mdx: string) => {
     const lines = mdx.split("\n");

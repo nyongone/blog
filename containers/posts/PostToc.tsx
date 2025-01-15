@@ -2,7 +2,6 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import clsx from "clsx";
-import { debounce } from "@/utils/debounce";
 
 interface Props {
   tocs: { id: string; content: string; level: number }[];

@@ -48,7 +48,11 @@ const PostToc = ({ tocs }: Props) => {
     _setTimeout(setTimeout(detectScrollChanges, 2500));
 
     return () => {
-      _setTimeout(null);
+      if (_timeout)
+        _setTimeout(() => {
+          clearTimeout(_timeout);
+          return null;
+        });
     };
   }, [calcHeadingsTop]);
 

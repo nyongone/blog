@@ -41,6 +41,7 @@ export default async function Page({
   return (
     <>
       <PostDetail post={post.data} />
+      <hr className="my-16 h-[1px] w-full border-none bg-gray-300" />
       {process.env.NODE_ENV === "production" && <Comments />}
     </>
   );

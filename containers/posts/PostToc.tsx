@@ -2,46 +2,23 @@
 
 import React, { useCallback, useEffect, useState } from "react";
 import clsx from "clsx";
+import { debounce } from "@/utils/debounce";
 
 interface Props {
-  content: string;
+  tocs: { id: string; content: string; level: number }[];
 }
 
-const PostToc = ({ content }: Props) => {
-  const _getHeadingLevel = (s: string) => s.match(/^(#{1,3})(?=\s)/)![0].length;
-  const _getSanitizedId = (s: string) =>
-    s
-      .match(/^#{1,3}\s+(\S.*)$/)![1]
-      .trimEnd()
-      .replaceAll(" ", "-")
-      .replaceAll("#", "")
-      .toLowerCase();
-
-  const _getHeadings = useCallback(
-    (mdx: string) => {
-      const lines = mdx.split("\n");
-      return lines
-        .filter((line) => line.startsWith("#"))
-        .map((heading) => {
-          const level = _getHeadingLevel(heading);
-          const id = _getSanitizedId(heading);
-          return {
-            id: id,
-            level: level,
-            content: heading.replaceAll("#", "").trim(),
-          };
-        });
-    },
-    [content],
-  );
-
-  const tocs = _getHeadings(content);
+const PostToc = ({ tocs }: Props) => {
+  const [_timeout, _setTimeout] = useState<ReturnType<
+    typeof setTimeout
+  > | null>(null);
+  const [_prevScrollHeight, _setPrevScrollHeight] = useState<number>(0);
   const [activateId, setActivateId] = useState<string | null>(null);
   const [headingCoords, setHeadingCoords] = useState<
     { id: string; top: number }[]
   >([]);
 
-  useEffect(() => {
+  const calcHeadingsTop = useCallback(() => {
     const _scrollTop = document.documentElement.scrollTop;
     setHeadingCoords(
       tocs.map((toc) => {
@@ -52,11 +29,33 @@ const PostToc = ({ content }: Props) => {
         return { id: toc.id, top: top };
       }),
     );
-  }, []);
+  }, [tocs]);
+
+  useEffect(() => {
+    calcHeadingsTop();
+    _setPrevScrollHeight(document.body.scrollHeight);
+
+    const detectScrollChanges = () => {
+      const _currentScrollHeight = document.body.scrollHeight;
+      if (_prevScrollHeight !== _currentScrollHeight) {
+        calcHeadingsTop();
+        _setPrevScrollHeight(_currentScrollHeight);
+      }
+
+      _setTimeout(setTimeout(detectScrollChanges, 2500));
+    };
+
+    _setTimeout(setTimeout(detectScrollChanges, 2500));
+
+    return () => {
+      _setTimeout(null);
+    };
+  }, [calcHeadingsTop]);
 
   useEffect(() => {
     if (tocs.length >= 1) {
       const onScroll = () => {
+        console.log("debounce check");
         const _scrollTop = document.documentElement.scrollTop;
         const currentToc = headingCoords
           .slice()
@@ -75,6 +74,10 @@ const PostToc = ({ content }: Props) => {
       };
     }
   }, [headingCoords]);
+
+  useEffect(() => {
+    console.log(activateId);
+  }, [activateId]);
 
   if (tocs.length <= 0) return <></>;
 

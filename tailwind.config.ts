@@ -129,6 +129,17 @@ export default {
               marginBottom: "0",
             },
           },
+          code: {
+            display: "inline-block",
+            padding: "0 0.25rem",
+            margin: "0 0.25rem",
+            fontSize: "1rem",
+            borderRadius: "0.5rem",
+            backgroundColor: theme("colors.gray.200"),
+            "@media screen and (max-width: 767px)": {
+              fontSize: "0.75rem",
+            },
+          },
         },
       },
     }),

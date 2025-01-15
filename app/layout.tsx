@@ -4,6 +4,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import localFont from "next/font/local";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import GoogleAdsense from "@/components/common/GoogleAdsense";
 
 const fontPretendard = localFont({
   src: "../assets/fonts/PretendardVariable.woff2",
@@ -36,6 +37,7 @@ export default function RootLayout({
         <>
           <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTAG_ID}`} />
           <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GA_ID}`} />
+          <GoogleAdsense />
         </>
       )}
       <body className={`${fontPretendard.className}`}>

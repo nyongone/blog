@@ -1,6 +1,6 @@
 import React from "react";
 import { PostType } from "@/types/post";
-import { markdownToHTML } from "@/utils/markdown";
+import { getHeadingsFromMdx, markdownToHTML } from "@/utils/markdown";
 import "@/styles/highlight.css";
 import { formatDate } from "@/utils/date-formatter";
 import PostToc from "@/containers/posts/PostToc";
@@ -14,7 +14,7 @@ const PostDetail = async ({ post }: Props) => {
     <>
       <div className="relative w-full">
         <aside className="absolute right-[100%] top-28 mr-4 h-full w-[150px] pt-8 max-xl:hidden">
-          <PostToc content={post.content} />
+          <PostToc tocs={getHeadingsFromMdx(post.content)} />
         </aside>
         <div className="flex h-auto max-w-[1024px] flex-col items-start justify-start gap-2 p-4">
           <span className="text-gray-400">{formatDate(post.createdAt)}</span>

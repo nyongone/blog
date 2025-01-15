@@ -18,3 +18,13 @@ export async function getPostById(id: number) {
     cache: "no-cache",
   });
 }
+
+export async function getPostBySlug(slug: string) {
+  return await fetchData<GeneralResponse<PostType>>(
+    `/posts/searchBySlug/${slug}`,
+    {
+      method: "GET",
+      cache: "no-cache",
+    },
+  );
+}

@@ -1,4 +1,4 @@
-import { getPostById } from "@/apis/post-api";
+import { getPostBySlug } from "@/apis/post-api";
 import PostDetail from "@/containers/posts/PostDetail";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -7,10 +7,10 @@ import Comments from "@/containers/posts/Comments";
 export async function generateMetadata({
   params,
 }: {
-  params: Promise<{ id: number }>;
+  params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
-  const { id } = await params;
-  const { data } = await getPostById(id);
+  const { slug } = await params;
+  const { data } = await getPostBySlug(slug);
 
   if (data)
     return {
@@ -31,10 +31,10 @@ export async function generateMetadata({
 export default async function Page({
   params,
 }: {
-  params: Promise<{ id: number }>;
+  params: Promise<{ slug: string }>;
 }) {
-  const { id } = await params;
-  const post = await getPostById(id);
+  const { slug } = await params;
+  const post = await getPostBySlug(slug);
 
   if (!post.data) return notFound();
 

@@ -11,7 +11,7 @@ const PostItem = ({ postData }: Props) => {
   return (
     <li className="h-auto w-full bg-transparent py-4 max-md:py-2">
       <Link
-        href={`/post/${postData.id}`}
+        href={`/post/${postData.slug}`}
         className="flex h-full w-full flex-col items-start justify-center gap-2"
       >
         <div className="flex h-auto w-full flex-row items-center justify-start gap-2">

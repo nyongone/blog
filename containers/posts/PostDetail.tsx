@@ -13,7 +13,7 @@ const PostDetail = async ({ post }: Props) => {
   return (
     <>
       <div className="relative w-full">
-        <aside className="absolute right-[100%] top-28 mr-4 h-full w-[150px] pt-8 max-xl:hidden">
+        <aside className="absolute right-[100%] top-28 mr-4 h-full w-[160px] pt-8 max-xl:hidden">
           <PostToc tocs={getHeadingsFromMdx(post.content)} />
         </aside>
         <div className="flex h-auto max-w-[1024px] flex-col items-start justify-start gap-2 p-4">

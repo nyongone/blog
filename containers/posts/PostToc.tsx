@@ -8,10 +8,6 @@ interface Props {
 }
 
 const PostToc = ({ tocs }: Props) => {
-  const [_timeout, _setTimeout] = useState<ReturnType<
-    typeof setTimeout
-  > | null>(null);
-  const [_prevScrollHeight, _setPrevScrollHeight] = useState<number>(0);
   const [activateId, setActivateId] = useState<string | null>(null);
   const [headingCoords, setHeadingCoords] = useState<
     { id: string; top: number }[]
@@ -32,27 +28,6 @@ const PostToc = ({ tocs }: Props) => {
 
   useEffect(() => {
     calcHeadingsTop();
-    _setPrevScrollHeight(document.body.scrollHeight);
-
-    const detectScrollChanges = () => {
-      const _currentScrollHeight = document.body.scrollHeight;
-      if (_prevScrollHeight !== _currentScrollHeight) {
-        calcHeadingsTop();
-        _setPrevScrollHeight(_currentScrollHeight);
-      }
-
-      _setTimeout(setTimeout(detectScrollChanges, 2500));
-    };
-
-    _setTimeout(setTimeout(detectScrollChanges, 2500));
-
-    return () => {
-      if (_timeout)
-        _setTimeout(() => {
-          clearTimeout(_timeout);
-          return null;
-        });
-    };
   }, [calcHeadingsTop]);
 
   useEffect(() => {

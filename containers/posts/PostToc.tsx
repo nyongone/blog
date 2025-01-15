@@ -55,7 +55,6 @@ const PostToc = ({ tocs }: Props) => {
   useEffect(() => {
     if (tocs.length >= 1) {
       const onScroll = () => {
-        console.log("debounce check");
         const _scrollTop = document.documentElement.scrollTop;
         const currentToc = headingCoords
           .slice()
@@ -74,10 +73,6 @@ const PostToc = ({ tocs }: Props) => {
       };
     }
   }, [headingCoords]);
-
-  useEffect(() => {
-    console.log(activateId);
-  }, [activateId]);
 
   if (tocs.length <= 0) return <></>;
 

@@ -6,7 +6,6 @@ import rehypeSanitize from "rehype-sanitize";
 import rehypeStringify from "rehype-stringify";
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
-import { useCallback } from "react";
 
 export async function markdownToHTML(content: string) {
   const processedContent = await unified()

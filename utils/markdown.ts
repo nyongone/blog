@@ -28,7 +28,6 @@ export function getHeadingsFromMdx(mdx: string) {
     const slugger = new GithubSlugger();
     const slug = slugger.slug(s.match(/^#{1,3}\s+(\S.*)$/)![1]);
 
-    console.log(slug);
     return slug;
   };
 

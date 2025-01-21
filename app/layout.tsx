@@ -38,8 +38,13 @@ export default function RootLayout({
           <GoogleTagManager gtmId={`${process.env.NEXT_PUBLIC_GTAG_ID}`} />
           <GoogleAnalytics gaId={`${process.env.NEXT_PUBLIC_GA_ID}`} />
           <GoogleAdsense />
+          <meta
+            name="naver-site-verification"
+            content="cb82d91aff2af363cdf6abeb4221a9797ae081b5"
+          />
         </>
       )}
+
       <body className={`${fontPretendard.className}`}>
         <Header />
         <main className="m-[0_auto] min-h-screen max-w-[896px] p-4">

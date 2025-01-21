@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
+import { getPosts } from "@/apis/post-api";
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getPosts();
   return [
     {
       url: "https://nyong.world",
@@ -8,5 +10,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "hourly",
       priority: 1,
     },
+    ...posts.data.map((post) => ({
+      url: `https://nyong.world/post/${post.id}`,
+      lastModified: post.updatedAt,
+    })),
   ];
 }

@@ -11,7 +11,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 1,
     },
     ...posts.data.map((post) => ({
-      url: `https://nyong.world/post/${post.id}`,
+      url: `https://nyong.world/post/${post.slug}`,
       lastModified: post.updatedAt,
     })),
   ];

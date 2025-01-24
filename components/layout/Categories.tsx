@@ -18,7 +18,7 @@ const Categories = ({ categories }: Props) => {
   if (!categories || categories.length <= 0) return <></>;
 
   return (
-    <div className="m-[0_auto] my-8 flex h-auto max-w-[896px] flex-row items-center justify-start gap-4 px-4">
+    <div className="m-[0_auto] my-8 flex h-auto max-w-[896px] flex-row justify-start gap-4 px-4 max-md:flex-col">
       <span className="text-sm font-bold text-gray-500">TOPICS</span>
       <ul className="flex flex-row flex-wrap items-center justify-start gap-4">
         {categories.map((category) => (
@@ -38,12 +38,14 @@ const Categories = ({ categories }: Props) => {
             </Link>
           </li>
         ))}
+        {currentCategory && (
+          <li>
+            <Link href="/">
+              <CloseButton width={16} height={16} fill="#ccc" />
+            </Link>
+          </li>
+        )}
       </ul>
-      {currentCategory && (
-        <Link href="/">
-          <CloseButton width={16} height={16} fill="#ccc" />
-        </Link>
-      )}
     </div>
   );
 };

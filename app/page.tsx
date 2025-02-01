@@ -3,7 +3,6 @@ import PostList from "@/components/posts/PostList";
 import React from "react";
 import { getPosts } from "@/apis/post-api";
 import { getCategories } from "@/apis/category-api";
-import PostPagination from "@/components/posts/PostPagination";
 
 export default async function Page({
   searchParams,

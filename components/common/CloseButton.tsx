@@ -9,7 +9,7 @@ interface Props {
 const CloseButton = ({ width, height, fill }: Props) => {
   return (
     <svg
-      width={width || "24"}
+      width={width || 24}
       height={height || 24}
       viewBox="0 0 24 24"
       fill={fill || "#000"}

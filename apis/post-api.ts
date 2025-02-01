@@ -2,7 +2,7 @@ import { fetchData } from "@/utils/fetch";
 import { GeneralResponse } from "@/types/response";
 import { PostType } from "@/types/post";
 
-export async function getPosts(page = 1, limit = -1, category?: string) {
+export async function getPosts(page = 1, limit = 10, category?: string) {
   return await fetchData<GeneralResponse<PostType[]>>(
     `/posts?page=${page}&limit=${limit}${category ? `&category=${category}` : ``}`,
     {

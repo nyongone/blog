@@ -63,7 +63,7 @@ const PostPagination = ({ totalPages, pageLimit, onPageChange }: Props) => {
               "flex h-full w-full items-center justify-center rounded-xl text-xl font-normal text-gray-400 max-md:text-sm",
               {
                 "bg-blue-500 font-semibold text-white": page === currentPage,
-                "bg-gray-200": page !== currentPage,
+                "bg-gray-100": page !== currentPage,
               },
             )}
           >

@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { getPosts } from "@/apis/post-api";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const posts = await getPosts();
+  const posts = await getPosts(1, -1);
   return [
     {
       url: "https://nyong.world",
